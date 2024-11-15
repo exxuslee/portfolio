@@ -10,7 +10,7 @@ plugins {
 kotlin {
     jvm()
 
-    wasmJs {
+    js {
         browser()
         binaries.executable()
     }
@@ -48,6 +48,10 @@ kotlin {
             implementation(libs.kotlinx.coroutines.swing)
         }
 
+        jsMain.dependencies {
+            implementation(compose.html.core)
+        }
+
     }
 }
 
@@ -57,7 +61,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "Portfolio"
+            packageName = "portfolio"
             packageVersion = "1.0.0"
 
             linux {

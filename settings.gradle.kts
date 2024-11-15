@@ -1,4 +1,4 @@
-rootProject.name = "Portfolio"
+rootProject.name = "portfolio"
 
 pluginManagement {
     repositories {

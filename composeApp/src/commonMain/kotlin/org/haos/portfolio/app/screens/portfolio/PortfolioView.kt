@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.*
-import androidx.compose.ui.InternalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -62,14 +61,14 @@ fun PortfolioView(
                     .fillMaxWidth()
                     .aspectRatio(1f)
                     .clickable { selectedPhoto = photoPath },
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 imageLoader = imageLoader
             )
         }
     }
 }
 
-@OptIn(InternalComposeUiApi::class)
+
 @Composable
 @Preview
 fun PortfolioView_Preview(photos: List<DrawableResource>) {

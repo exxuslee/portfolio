@@ -9,8 +9,8 @@
     <string name="BaseCurrency">Базовая валюта</string>
     <string name="Language">Язык</string>
 
-    <string name="wallet">Кошелек</string>
-    <string name="key">Ключ</string>
+    <string name="about_me">Обо мне</string>
+    <string name="portfolio">Портфолио</string>
     <string name="home">Главная</string>
     <string name="profile">Профиль</string>
     <string name="invite_friends">Позвать друзей</string>

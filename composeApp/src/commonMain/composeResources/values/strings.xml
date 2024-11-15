@@ -9,8 +9,8 @@
     <string name="BaseCurrency">Base Currency</string>
     <string name="Language">Language</string>
 
-    <string name="wallet">Wallet</string>
-    <string name="key">Key</string>
+    <string name="about_me">About me</string>
+    <string name="portfolio">Portfolio</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="invite_friends">Invite friends</string>

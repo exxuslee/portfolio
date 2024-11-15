@@ -12,8 +12,8 @@ import androidx.compose.runtime.*
 import cafe.adriel.voyager.navigator.Navigator
 import org.haos.portfolio.app.navigations.ScreenGraph
 import org.haos.portfolio.app.screens.home.HomeScreen
-import org.haos.portfolio.app.screens.key.KeyScreen
-import org.haos.portfolio.app.screens.wallet.WalletScreen
+import org.haos.portfolio.app.screens.portfolio.PortfolioScreen
+import org.haos.portfolio.app.screens.about.AboutScreen
 import org.haos.portfolio.app.theme.AppTheme
 import org.haos.portfolio.app.theme.ComposeAppTheme
 import org.haos.portfolio.app.ui.caption_tyler
@@ -30,8 +30,8 @@ internal fun App() = AppTheme {
             ScreenGraph.entries.forEach { screen ->
                 val icon = when (screen) {
                     ScreenGraph.Home -> Icons.Rounded.Home to Icons.Outlined.Home
-                    ScreenGraph.Key -> vectorResource(Res.drawable.ic_sports_fill1) to vectorResource(Res.drawable.ic_sports_fill0)
-                    ScreenGraph.Wallet -> vectorResource(Res.drawable.ic_account_balance_fill1) to vectorResource(Res.drawable.ic_account_balance_fill0)
+                    ScreenGraph.Portfolio -> vectorResource(Res.drawable.ic_sports_fill1) to vectorResource(Res.drawable.ic_sports_fill0)
+                    ScreenGraph.AboutMe -> vectorResource(Res.drawable.ic_account_balance_fill1) to vectorResource(Res.drawable.ic_account_balance_fill0)
                 }
 
                 BottomNavigationItem(
@@ -51,8 +51,8 @@ internal fun App() = AppTheme {
     }, content = {
         when (selectedScreen) {
             ScreenGraph.Home -> Navigator(HomeScreen())
-            ScreenGraph.Key -> Navigator(KeyScreen())
-            ScreenGraph.Wallet -> Navigator(WalletScreen())
+            ScreenGraph.Portfolio -> Navigator(PortfolioScreen())
+            ScreenGraph.AboutMe -> Navigator(AboutScreen())
         }
     })
 }

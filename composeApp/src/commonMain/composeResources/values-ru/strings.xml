@@ -1,0 +1,26 @@
+<resources>
+    <string name="cyclone">Циклон</string>
+    <string name="open_github">Открыть</string>
+    <string name="run">Пуск</string>
+    <string name="stop">Стоп</string>
+    <string name="theme">Тема</string>
+    <string name="Settings">Настройки</string>
+    <string name="Back">Назад</string>
+    <string name="BaseCurrency">Базовая валюта</string>
+    <string name="Language">Язык</string>
+
+    <string name="wallet">Кошелек</string>
+    <string name="key">Ключ</string>
+    <string name="home">Главная</string>
+    <string name="profile">Профиль</string>
+    <string name="invite_friends">Позвать друзей</string>
+    <string name="election_history">История выбора</string>
+    <string name="disable">Отключить</string>
+    <string name="invite">Пригласить</string>
+    <string name="about_game">Об игре</string>
+    <string name="game_rules">Правила игры</string>
+    <string name="how_are_the_prizes_distributed">Как распределяются призы</string>
+    <string name="community">Коммьюнити</string>
+    <string name="chat">Чат</string>
+
+</resources>

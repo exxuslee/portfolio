@@ -62,7 +62,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "portfolio"
-            packageVersion = "1.0.0"
+            packageVersion = "1.0.1"
 
             linux {
                 iconFile.set(project.file("desktopAppIcons/LinuxIcon.png"))

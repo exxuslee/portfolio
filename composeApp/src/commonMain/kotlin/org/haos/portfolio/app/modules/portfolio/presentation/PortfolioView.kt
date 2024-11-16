@@ -47,20 +47,21 @@ fun PortfolioView(
     }
 
     LazyVerticalGrid(
-        columns = GridCells.Fixed(3),
+        columns = GridCells.Fixed(2),
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        items(viewState.photos) { photoPath ->
+        items(viewState.count) { photoPath ->
+            val url = "https://exxuslee.github.io/portfolio/gallery/$photoPath.jpg"
             AsyncImage(
-                model = photoPath,
+                model = url,
                 contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1f)
-                    .clickable { selectedPhoto = photoPath },
+                    .clickable { selectedPhoto = url },
                 contentScale = ContentScale.Fit,
                 imageLoader = imageLoader
             )

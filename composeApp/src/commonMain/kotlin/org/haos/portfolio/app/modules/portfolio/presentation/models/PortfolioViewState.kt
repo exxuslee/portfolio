@@ -2,6 +2,7 @@ package org.haos.portfolio.app.modules.portfolio.presentation.models
 
 
 data class PortfolioViewState(
+    val count: Int = 0,
     val photos: List<String> = listOf(
         "https://exxuslee.github.io/portfolio/gallery/1.jpg",
         "https://exxuslee.github.io/portfolio/gallery/2.jpg",

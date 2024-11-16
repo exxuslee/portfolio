@@ -15,21 +15,21 @@
  */
 package org.haos.portfolio.app.modules.portfolio.data.datasource.remote
 
-import org.haos.portfolio.app.modules.portfolio.data.model.Images
+import org.haos.portfolio.app.modules.portfolio.data.model.Count
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
 import kotlinx.serialization.json.Json
 
-class PhotoRemoteDataSource(private val httpClient: HttpClient) {
-    suspend fun getAllPosts(): List<Images> {
-        return httpClient.get(GET_ALL_POSTS_URL).bodyAsText().let { json ->
+class GalleryRemoteDataSource(private val httpClient: HttpClient) {
+    suspend fun getCount(): Count {
+        return httpClient.get(GET_COUNT).bodyAsText().let { json ->
             Json.decodeFromString(json)
         }
     }
 
     companion object {
-        private const val BASE_URL = "https://patilshreyas.github.io"
-        private const val GET_ALL_POSTS_URL = "$BASE_URL/DummyFoodiumApi/api/posts/"
+        private const val BASE_URL = "https://exxuslee.github.io/portfolio"
+        private const val GET_COUNT = "$BASE_URL/gallery/count.json"
     }
 }

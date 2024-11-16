@@ -19,10 +19,6 @@ package org.haos.portfolio.app.modules.portfolio.data.model
  * Model for Post
  */
 @kotlinx.serialization.Serializable
-data class Images(
-    val id: Int,
-    val title: String,
-    val author: String,
-    val body: String,
-    val imageUrl: String,
+data class Count(
+    val count: Int,
 )

@@ -13,20 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.haos.portfolio.app.modules.portfolio.data.repository.impl
+package org.haos.portfolio.app.modules.portfolio.data.repository
 
-import org.haos.portfolio.app.modules.portfolio.data.datasource.remote.PhotoRemoteDataSource
-import org.haos.portfolio.app.modules.portfolio.data.model.Images
-import org.haos.portfolio.app.modules.portfolio.data.repository.PhotoRepository
+import org.haos.portfolio.app.modules.portfolio.data.datasource.remote.GalleryRemoteDataSource
+import org.haos.portfolio.app.modules.portfolio.data.model.Count
+import org.haos.portfolio.app.modules.portfolio.domain.PhotoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 internal class PhotoRepositoryImpl(
-    private val remoteDataSource: PhotoRemoteDataSource,
+    private val remoteDataSource: GalleryRemoteDataSource,
 ) : PhotoRepository {
-    override fun getAllPosts(): Flow<List<Images>> {
+    override fun count(): Flow<Count> {
         return flow {
-            emit(remoteDataSource.getAllPosts())
+            emit(remoteDataSource.getCount())
         }
     }
 

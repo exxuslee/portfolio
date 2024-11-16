@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.haos.portfolio.app.modules.portfolio.data.repository
+package org.haos.portfolio.app.modules.portfolio.domain
 
-import org.haos.portfolio.app.modules.portfolio.data.model.Images
+import org.haos.portfolio.app.modules.portfolio.data.model.Count
 import kotlinx.coroutines.flow.Flow
 
 
 interface PhotoRepository {
-    fun getAllPosts(): Flow<List<Images>>
+    fun count(): Flow<Count>
 
 }

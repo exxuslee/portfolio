@@ -1,3 +1,5 @@
 package org.haos.portfolio.app.modules.portfolio.presentation.models
 
-class PortfolioAction
+sealed class PortfolioAction {
+    data object Init : PortfolioAction()
+}

@@ -10,7 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import cafe.adriel.voyager.navigator.Navigator
-import org.haos.portfolio.app.navigations.ScreenGraph
+import org.haos.portfolio.app.core.navigations.ScreenGraph
 import org.haos.portfolio.app.modules.home.HomeScreen
 import org.haos.portfolio.app.modules.portfolio.presentation.PortfolioScreen
 import org.haos.portfolio.app.modules.profile.ProfileScreen

@@ -7,7 +7,7 @@ import cafe.adriel.voyager.core.annotation.ExperimentalVoyagerApi
 import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
-import org.haos.portfolio.app.navigations.SlideTransition
+import org.haos.portfolio.app.core.navigations.SlideTransition
 
 
 @OptIn(ExperimentalVoyagerApi::class)

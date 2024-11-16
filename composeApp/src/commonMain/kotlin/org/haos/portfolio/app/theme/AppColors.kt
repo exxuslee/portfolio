@@ -21,7 +21,8 @@ class AppColors(
     purple: Color,
     raina: Color,
     andy: Color,
-    oz: Color
+    oz: Color,
+    background: Color,
 ) {
 
     //base colors
@@ -84,8 +85,9 @@ class AppColors(
         private set
     var andy by mutableStateOf(andy)
         private set
-
     var oz by mutableStateOf(oz)
+        private set
+    var background by mutableStateOf(background)
         private set
 
     fun update(other: AppColors) {
@@ -102,7 +104,8 @@ class AppColors(
         purple = other.purple
         raina = other.raina
         andy = other.andy
-        oz=other.oz
+        oz = other.oz
+        background = other.background
     }
 
     fun copy(): AppColors = AppColors(
@@ -119,6 +122,7 @@ class AppColors(
         purple = purple,
         raina = raina,
         andy = andy,
-        oz=oz,
+        oz = oz,
+        background = background,
     )
 }

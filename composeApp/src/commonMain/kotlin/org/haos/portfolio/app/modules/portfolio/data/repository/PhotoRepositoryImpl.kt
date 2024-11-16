@@ -24,10 +24,7 @@ import kotlinx.coroutines.flow.flow
 internal class PhotoRepositoryImpl(
     private val remoteDataSource: GalleryRemoteDataSource,
 ) : PhotoRepository {
-    override fun count(): Flow<Count> {
-        return flow {
-            emit(remoteDataSource.getCount())
-        }
-    }
+    override suspend fun count() = remoteDataSource.getCount()
+
 
 }

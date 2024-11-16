@@ -20,6 +20,6 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface PhotoRepository {
-    fun count(): Flow<Count>
+    suspend fun count(): Count
 
 }

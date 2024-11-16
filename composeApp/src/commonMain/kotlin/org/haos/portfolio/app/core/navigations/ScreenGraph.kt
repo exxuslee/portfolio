@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.navigations
+package org.haos.portfolio.app.core.navigations
 
 import org.jetbrains.compose.resources.StringResource
 import portfolio.composeapp.generated.resources.Res

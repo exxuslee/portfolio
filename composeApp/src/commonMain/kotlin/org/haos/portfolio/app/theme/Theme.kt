@@ -90,6 +90,7 @@ val lightPalette = AppColors(
     raina = White50,
     andy = Steel20,
     oz = Dark,
+    background = md_theme_light_background,
 )
 
 val darkPalette = AppColors(
@@ -107,6 +108,7 @@ val darkPalette = AppColors(
     raina = Steel10,
     andy = Black50,
     oz = Light,
+    background = md_theme_light_background,
 )
 
 @Composable

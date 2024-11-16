@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.navigations
+package org.haos.portfolio.app.core.navigations
 
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition

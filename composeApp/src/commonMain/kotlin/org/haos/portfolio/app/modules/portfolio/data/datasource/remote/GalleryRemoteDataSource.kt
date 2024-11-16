@@ -23,7 +23,8 @@ import kotlinx.serialization.json.Json
 
 class GalleryRemoteDataSource(private val httpClient: HttpClient) {
     suspend fun getCount(): Count {
-        return httpClient.get(GET_COUNT).bodyAsText().let { json ->
+        val response = httpClient.get(GET_COUNT).bodyAsText()
+        return response.let { json ->
             Json.decodeFromString(json)
         }
     }

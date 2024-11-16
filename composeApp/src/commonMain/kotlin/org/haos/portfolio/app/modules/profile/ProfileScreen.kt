@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.about
+package org.haos.portfolio.app.modules.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -11,15 +11,15 @@ import org.haos.portfolio.app.navigations.SlideTransition
 
 
 @OptIn(ExperimentalVoyagerApi::class)
-class AboutScreen : Screen, ScreenTransition by SlideTransition() {
+class ProfileScreen : Screen, ScreenTransition by SlideTransition() {
 
     @Composable
     override fun Content() {
-        val screenModel = rememberScreenModel { AboutScreenModel() }
+        val screenModel = rememberScreenModel { ProfileScreenModel() }
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)
 
-        AboutView(viewState = viewState) { event ->
+        ProfileView(viewState = viewState) { event ->
             screenModel.obtainEvent(event)
         }
 

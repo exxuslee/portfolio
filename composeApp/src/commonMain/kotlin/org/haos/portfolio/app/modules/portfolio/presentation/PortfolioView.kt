@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.portfolio
+package org.haos.portfolio.app.modules.portfolio.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,8 +14,8 @@ import coil3.ImageLoader
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import coil3.request.ImageRequest
-import org.haos.portfolio.app.screens.portfolio.models.PortfolioEvent
-import org.haos.portfolio.app.screens.portfolio.models.PortfolioViewState
+import org.haos.portfolio.app.modules.portfolio.presentation.models.PortfolioEvent
+import org.haos.portfolio.app.modules.portfolio.presentation.models.PortfolioViewState
 import org.haos.portfolio.app.theme.AppTheme
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.ui.tooling.preview.Preview

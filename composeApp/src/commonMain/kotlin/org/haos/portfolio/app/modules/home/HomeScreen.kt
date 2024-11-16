@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.home
+package org.haos.portfolio.app.modules.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.about
+package org.haos.portfolio.app.modules.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -22,8 +22,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import org.haos.portfolio.app.screens.portfolio.models.PortfolioEvent
-import org.haos.portfolio.app.screens.portfolio.models.PortfolioViewState
+import org.haos.portfolio.app.modules.profile.models.ProfileEvent
+import org.haos.portfolio.app.modules.profile.models.ProfileViewState
 import org.haos.portfolio.app.theme.AppTheme
 import org.haos.portfolio.app.ui.*
 import org.jetbrains.compose.resources.painterResource
@@ -32,8 +32,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import portfolio.composeapp.generated.resources.*
 
 @Composable
-fun AboutView(
-    viewState: PortfolioViewState, eventHandler: (PortfolioEvent) -> Unit
+fun ProfileView(
+    viewState: ProfileViewState, eventHandler: (ProfileEvent) -> Unit
 ) {
     Surface(
         modifier = Modifier.background(
@@ -183,8 +183,8 @@ fun AboutView(
 
 @Composable
 @Preview
-fun WalletView_Preview() {
+fun ProfileView_Preview() {
     AppTheme {
-        AboutView(viewState = PortfolioViewState()) {}
+        ProfileView(viewState = ProfileViewState()) {}
     }
 }

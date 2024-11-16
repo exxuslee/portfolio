@@ -34,6 +34,11 @@ kotlin {
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
 
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.logging)
+
         }
 
         commonTest.dependencies {
@@ -46,12 +51,13 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.okhttp)
         }
 
         jsMain.dependencies {
             implementation(compose.html.core)
+            implementation(libs.ktor.client.js)
         }
-
     }
 }
 

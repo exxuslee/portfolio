@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.portfolio.models
+package org.haos.portfolio.app.modules.portfolio.presentation.models
 
 
 data class PortfolioViewState(

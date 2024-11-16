@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.home.models
+package org.haos.portfolio.app.modules.home.models
 
 sealed class HomeEvent {
     data object ToggleTheme : HomeEvent()

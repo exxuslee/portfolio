@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.portfolio
+package org.haos.portfolio.app.modules.portfolio.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

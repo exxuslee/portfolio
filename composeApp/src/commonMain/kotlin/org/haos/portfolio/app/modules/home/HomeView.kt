@@ -1,4 +1,4 @@
-package org.haos.portfolio.app.screens.home
+package org.haos.portfolio.app.modules.home
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
@@ -12,8 +12,8 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import org.haos.portfolio.app.screens.home.models.HomeEvent
-import org.haos.portfolio.app.screens.home.models.HomeViewState
+import org.haos.portfolio.app.modules.home.models.HomeEvent
+import org.haos.portfolio.app.modules.home.models.HomeViewState
 import org.haos.portfolio.app.theme.AppTheme
 import org.haos.portfolio.app.theme.ComposeAppTheme
 import org.haos.portfolio.app.theme.LocalThemeIsDark

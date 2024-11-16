@@ -1,3 +1,29 @@
 {
-  "count": 22
+  "projects": [
+    {
+      "folder": "0",
+      "title": "Bad",
+      "count": 6
+    },
+    {
+      "folder": "1",
+      "title": "Room",
+      "count": 5
+    },
+    {
+      "folder": "2",
+      "title": "Спальня",
+      "count": 3
+    },
+    {
+      "folder": "3",
+      "title": "Кухня",
+      "count": 4
+    },
+    {
+      "folder": "kitchen",
+      "title": "Ванная",
+      "count": 4
+    }
+  ]
 }

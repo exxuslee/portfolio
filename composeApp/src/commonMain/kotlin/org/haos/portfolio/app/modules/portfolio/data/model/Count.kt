@@ -15,10 +15,7 @@
  */
 package org.haos.portfolio.app.modules.portfolio.data.model
 
-/**
- * Model for Post
- */
 @kotlinx.serialization.Serializable
 data class Count(
-    val count: Int,
+    val projects: List<Project>,
 )

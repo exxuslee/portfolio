@@ -35,7 +35,7 @@ class PortfolioScreenModel :
             photoUseCase.count().catch {
                 println("${it}")
             }.collect {
-                viewState = viewState.copy(count = it.count)
+                viewState = viewState.copy(count = it)
                 println("${it}")
             }
         }

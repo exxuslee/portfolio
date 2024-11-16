@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import coil3.ImageLoader
@@ -67,8 +68,7 @@ fun PortfolioView(
                 model = ImageRequest.Builder(LocalPlatformContext.current).data(url).build(),
                 contentDescription = null,
                 modifier = Modifier.fillMaxWidth(),
-                contentScale = ContentScale.None,
-                alignment = Alignment.Center,
+                contentScale = ContentScale.Fit,
                 imageLoader = imageLoader,
             )
         }
@@ -125,14 +125,10 @@ fun PortfolioView(
             item { Spacer(modifier = Modifier.height(16.dp)) }
         }
         item {
-            val url = "https://exxuslee.github.io/portfolio/gallery/common/portfolio_footer.jpg"
-            AsyncImage(
-                model = ImageRequest.Builder(LocalPlatformContext.current).data(url).build(),
-                contentDescription = null,
+            headline1_leah(
+                text = "Thanks for watching",
                 modifier = Modifier.fillMaxWidth(),
-                alignment = Alignment.Center,
-                contentScale = ContentScale.None,
-                imageLoader = imageLoader,
+                textAlign = TextAlign.Center
             )
         }
         item { Spacer(modifier = Modifier.height(24.dp)) }

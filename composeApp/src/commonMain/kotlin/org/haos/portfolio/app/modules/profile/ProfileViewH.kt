@@ -32,7 +32,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import portfolio.composeapp.generated.resources.*
 
 @Composable
-fun ProfileView(
+fun ProfileViewH(
     viewState: ProfileViewState, eventHandler: (ProfileEvent) -> Unit
 ) {
     Surface(
@@ -183,8 +183,8 @@ fun ProfileView(
 
 @Composable
 @Preview
-fun ProfileView_Preview() {
+fun ProfileViewH_Preview() {
     AppTheme {
-        ProfileView(viewState = ProfileViewState()) {}
+        ProfileViewH(viewState = ProfileViewState()) {}
     }
 }

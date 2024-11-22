@@ -9,16 +9,22 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.portfolio.app.modules.portfolio.presentation.models.PortfolioAction
 import org.haos.portfolio.app.core.navigations.SlideTransition
+import org.haos.portfolio.app.modules.home.HomeViewH
+import org.haos.portfolio.app.modules.home.HomeViewV
 
 @OptIn(ExperimentalVoyagerApi::class)
-class PortfolioScreen : Screen, ScreenTransition by SlideTransition() {
+class PortfolioScreen(private val isMobile: Boolean) : Screen, ScreenTransition by SlideTransition() {
     @Composable
     override fun Content() {
         val screenModel = rememberScreenModel { PortfolioScreenModel() }
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)
 
-        PortfolioView(viewState = viewState) { event ->
+
+        if (isMobile) PortfolioViewV(viewState = viewState) { event ->
+            screenModel.obtainEvent(event)
+        }
+        else PortfolioViewH(viewState = viewState) { event ->
             screenModel.obtainEvent(event)
         }
 

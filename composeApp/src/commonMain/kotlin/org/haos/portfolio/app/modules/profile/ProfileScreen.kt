@@ -8,10 +8,12 @@ import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.portfolio.app.core.navigations.SlideTransition
+import org.haos.portfolio.app.modules.home.HomeViewH
+import org.haos.portfolio.app.modules.home.HomeViewV
 
 
 @OptIn(ExperimentalVoyagerApi::class)
-class ProfileScreen : Screen, ScreenTransition by SlideTransition() {
+class ProfileScreen(private val isMobile: Boolean) : Screen, ScreenTransition by SlideTransition() {
 
     @Composable
     override fun Content() {
@@ -19,7 +21,10 @@ class ProfileScreen : Screen, ScreenTransition by SlideTransition() {
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)
 
-        ProfileView(viewState = viewState) { event ->
+        if (isMobile) ProfileViewV(viewState = viewState) { event ->
+            screenModel.obtainEvent(event)
+        }
+        else ProfileViewH(viewState = viewState) { event ->
             screenModel.obtainEvent(event)
         }
 

@@ -10,15 +10,17 @@ import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.portfolio.app.core.navigations.SlideTransition
 
 @OptIn(ExperimentalVoyagerApi::class)
-class HomeScreen : Screen, ScreenTransition by SlideTransition() {
+class HomeScreen(private val isMobile: Boolean) : Screen, ScreenTransition by SlideTransition() {
     @Composable
     override fun Content() {
         val screenModel = rememberScreenModel { HomeScreenModel() }
         val viewState by screenModel.viewStates().collectAsState()
         val viewAction by screenModel.viewActions().collectAsState(null)
 
-
-        HomeView(viewState = viewState) { event ->
+        if (isMobile) HomeViewV(viewState = viewState) { event ->
+            screenModel.obtainEvent(event)
+        }
+        else HomeViewH(viewState = viewState) { event ->
             screenModel.obtainEvent(event)
         }
 

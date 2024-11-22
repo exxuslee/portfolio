@@ -10,7 +10,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.haos.portfolio.app.modules.home.models.HomeEvent
 import org.haos.portfolio.app.modules.home.models.HomeViewState
@@ -25,13 +27,18 @@ import portfolio.composeapp.generated.resources.*
 
 
 @Composable
-fun HomeView(
+fun HomeViewH(
     viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit
 ) {
+    var parentSize by remember { mutableStateOf<IntSize?>(null) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.safeDrawing)
+            .onGloballyPositioned { coordinates ->
+                parentSize = coordinates.size
+            }
             .padding(16.dp).background(ComposeAppTheme.colors.greenD),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -91,6 +98,7 @@ fun HomeView(
             }
         )
 
+
         TextButton(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp).widthIn(min = 200.dp),
             onClick = { eventHandler.invoke(HomeEvent.Counter)},
@@ -103,8 +111,8 @@ fun HomeView(
 
 @Composable
 @Preview
-fun HomeView_Preview() {
+fun HomeViewH_Preview() {
     AppTheme {
-        HomeView(viewState = HomeViewState()) {}
+        HomeViewH(viewState = HomeViewState()) {}
     }
 }

@@ -24,15 +24,11 @@ import org.haos.portfolio.app.ui.HSpacer
 import org.haos.portfolio.app.ui.headline1_leah
 import org.haos.portfolio.app.ui.headline2_leah
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import portfolio.composeapp.generated.resources.Res
-import portfolio.composeapp.generated.resources.how_are_the_prizes_distributed
-import portfolio.composeapp.generated.resources.portfolio
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PortfolioView(
+fun PortfolioViewH(
     viewState: PortfolioViewState,
     eventHandler: (PortfolioEvent) -> Unit,
 ) {
@@ -58,9 +54,10 @@ fun PortfolioView(
     }
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxHeight().width(1280.dp).background(ComposeAppTheme.colors.greenD),
         contentPadding = PaddingValues(8.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item {
             val url = "https://exxuslee.github.io/portfolio/gallery/common/portfolio_header.jpg"
@@ -138,6 +135,6 @@ fun PortfolioView(
 
 @Composable
 @Preview
-fun PortfolioView_Preview(photos: List<DrawableResource>) {
-    AppTheme { PortfolioView(viewState = PortfolioViewState()) {} }
+fun PortfolioViewH_Preview(photos: List<DrawableResource>) {
+    AppTheme { PortfolioViewH(viewState = PortfolioViewState()) {} }
 }

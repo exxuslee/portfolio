@@ -35,148 +35,136 @@ import portfolio.composeapp.generated.resources.*
 fun ProfileViewH(
     viewState: ProfileViewState, eventHandler: (ProfileEvent) -> Unit
 ) {
-    Surface(
-        modifier = Modifier.background(
-            brush = Brush.verticalGradient(
-                colors = listOf(
-                    MaterialTheme.colorScheme.primary,
-                    MaterialTheme.colorScheme.scrim
-                ),
-            ),
-        ),
-        color = Color.Transparent,
-    ) {
-        val scrollState = rememberScrollState()
-        Column(modifier = Modifier.verticalScroll(scrollState)) {
-            RowUniversal(horizontalArrangement = Arrangement.Center) {
-                Image(
-                    painter = painterResource(Res.drawable.avatar),
-                    contentDescription = "avatar",
-                    modifier = Modifier.size(128.dp)
-                )
-            }
-            RowUniversal(
-                verticalPadding = 0.dp,
-                horizontalArrangement = Arrangement.Center
-            ) {
-                title3_tyler(stringResource(Res.string.profile))
-            }
-            VSpacer(8.dp)
-
-            CellUniversalSection(
-                listOf(
-                    {
-                        HsRow(
-                            icon = Icons.Outlined.FavoriteBorder,
-                            titleContent = {
-                                headline2_tyler(
-                                    text = stringResource(Res.string.election_history),
-                                    maxLines = 1,
-                                    modifier = Modifier.padding(horizontal = 12.dp)
-                                )
-                            },
-                            onClick = {},
-                            arrowRight = true,
-                            valueContent = {}
-                        )
-                    },
-                    {
-                        HsRow(
-                            icon = Res.drawable.ic_account_balance_fill0,
-                            titleContent = {
-                                Column(modifier = Modifier.padding(horizontal = 12.dp)) {
-                                    headline2_tyler(text = stringResource(Res.string.about_me))
-                                    subhead1_grey(text = "UQB_C6…ZDro")
-                                }
-                            },
-                            arrowRight = false,
-                            valueContent = {
-                                ButtonPrimaryGrey(
-                                    title = stringResource(Res.string.disable),
-                                    onClick = {}
-                                )
-                            }
-                        )
-                    },
-                    {
-                        HsRow(
-                            icon = Icons.Outlined.Call,
-                            titleContent = {
-                                Column(modifier = Modifier.padding(horizontal = 12.dp)) {
-                                    headline2_tyler(text = stringResource(Res.string.invite_friends))
-                                    subhead1_grey(text = "И получить BONES")
-                                }
-                            },
-                            arrowRight = false,
-                            valueContent = {
-                                ButtonPrimaryGrey(
-                                    title = stringResource(Res.string.invite),
-                                    onClick = {}
-                                )
-                            }
-                        )
-                    },
-                )
+    val scrollState = rememberScrollState()
+    Column(modifier = Modifier.verticalScroll(scrollState)) {
+        RowUniversal(horizontalArrangement = Arrangement.Center) {
+            Image(
+                painter = painterResource(Res.drawable.avatar),
+                contentDescription = "avatar",
+                modifier = Modifier.size(128.dp)
             )
-            HorizontalDivider()
-            headline1_tyler(
-                stringResource(Res.string.about_game),
-                Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
-            )
-            CellUniversalSection(
-                listOf(
-                    {
-                        HsRow(
-                            icon = Icons.Outlined.Info,
-                            titleContent = {
-                                headline2_tyler(
-                                    text = stringResource(Res.string.game_rules),
-                                    maxLines = 1,
-                                    modifier = Modifier.padding(horizontal = 12.dp)
-                                )
-                            },
-                            onClick = {},
-                            arrowRight = true,
-                        )
-                    },
-                    {
-                        HsRow(
-                            icon = Icons.Outlined.Star,
-                            titleContent = {
-                                headline2_tyler(
-                                    text = stringResource(Res.string.how_are_the_prizes_distributed),
-                                    maxLines = 1,
-                                    modifier = Modifier.padding(horizontal = 12.dp)
-                                )
-                            },
-                            onClick = {},
-                            arrowRight = true,
-                        )
-                    },
-                )
-            )
-            HorizontalDivider()
-            headline1_tyler(
-                stringResource(Res.string.community),
-                Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
-            )
-            CellUniversalSection{
-                HsRow(
-                    icon = Icons.AutoMirrored.Outlined.Send,
-                    titleContent = {
-                        headline2_tyler(
-                            text = stringResource(Res.string.chat),
-                            modifier = Modifier.padding(horizontal = 12.dp)
-                        )
-                    },
-                    onClick = {},
-                    arrowRight = true,
-                )
-            }
-
-            HorizontalDivider()
-            VSpacer(32.dp)
         }
+        RowUniversal(
+            verticalPadding = 0.dp,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            title3_tyler(stringResource(Res.string.profile))
+        }
+        VSpacer(8.dp)
+
+        CellUniversalSection(
+            listOf(
+                {
+                    HsRow(
+                        icon = Icons.Outlined.FavoriteBorder,
+                        titleContent = {
+                            headline2_tyler(
+                                text = stringResource(Res.string.election_history),
+                                maxLines = 1,
+                                modifier = Modifier.padding(horizontal = 12.dp)
+                            )
+                        },
+                        onClick = {},
+                        arrowRight = true,
+                        valueContent = {}
+                    )
+                },
+                {
+                    HsRow(
+                        icon = Res.drawable.ic_account_balance_fill0,
+                        titleContent = {
+                            Column(modifier = Modifier.padding(horizontal = 12.dp)) {
+                                headline2_tyler(text = stringResource(Res.string.about_me))
+                                subhead1_grey(text = "UQB_C6…ZDro")
+                            }
+                        },
+                        arrowRight = false,
+                        valueContent = {
+                            ButtonPrimaryGrey(
+                                title = stringResource(Res.string.disable),
+                                onClick = {}
+                            )
+                        }
+                    )
+                },
+                {
+                    HsRow(
+                        icon = Icons.Outlined.Call,
+                        titleContent = {
+                            Column(modifier = Modifier.padding(horizontal = 12.dp)) {
+                                headline2_tyler(text = stringResource(Res.string.invite_friends))
+                                subhead1_grey(text = "И получить BONES")
+                            }
+                        },
+                        arrowRight = false,
+                        valueContent = {
+                            ButtonPrimaryGrey(
+                                title = stringResource(Res.string.invite),
+                                onClick = {}
+                            )
+                        }
+                    )
+                },
+            )
+        )
+        HorizontalDivider()
+        headline1_tyler(
+            stringResource(Res.string.about_game),
+            Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+        )
+        CellUniversalSection(
+            listOf(
+                {
+                    HsRow(
+                        icon = Icons.Outlined.Info,
+                        titleContent = {
+                            headline2_tyler(
+                                text = stringResource(Res.string.game_rules),
+                                maxLines = 1,
+                                modifier = Modifier.padding(horizontal = 12.dp)
+                            )
+                        },
+                        onClick = {},
+                        arrowRight = true,
+                    )
+                },
+                {
+                    HsRow(
+                        icon = Icons.Outlined.Star,
+                        titleContent = {
+                            headline2_tyler(
+                                text = stringResource(Res.string.how_are_the_prizes_distributed),
+                                maxLines = 1,
+                                modifier = Modifier.padding(horizontal = 12.dp)
+                            )
+                        },
+                        onClick = {},
+                        arrowRight = true,
+                    )
+                },
+            )
+        )
+        HorizontalDivider()
+        headline1_tyler(
+            stringResource(Res.string.community),
+            Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
+        )
+        CellUniversalSection {
+            HsRow(
+                icon = Icons.AutoMirrored.Outlined.Send,
+                titleContent = {
+                    headline2_tyler(
+                        text = stringResource(Res.string.chat),
+                        modifier = Modifier.padding(horizontal = 12.dp)
+                    )
+                },
+                onClick = {},
+                arrowRight = true,
+            )
+        }
+
+        HorizontalDivider()
+        VSpacer(32.dp)
     }
 }
 

@@ -1,6 +1,9 @@
 package org.haos.portfolio.app
 
-import androidx.compose.foundation.background
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -13,7 +16,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import org.haos.portfolio.app.core.navigations.ScreenGraph
@@ -22,6 +28,7 @@ import org.haos.portfolio.app.modules.portfolio.presentation.PortfolioScreen
 import org.haos.portfolio.app.modules.profile.ProfileScreen
 import org.haos.portfolio.app.theme.ComposeAppTheme
 import org.haos.portfolio.app.ui.caption_tyler
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import portfolio.composeapp.generated.resources.*
@@ -30,16 +37,35 @@ import portfolio.composeapp.generated.resources.*
 fun Main() {
     var selectedScreen by remember { mutableStateOf(ScreenGraph.entries.first()) }
     var isMobile by remember { mutableStateOf(false) }
+    val transition = updateTransition(targetState = selectedScreen, label = "Screen Transition")
+
+    val offsetX by transition.animateFloat(
+        transitionSpec = { tween(durationMillis = 500) },
+        label = "Parallax Offset"
+    ) { index ->
+        -index.ordinal * 200F
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.safeDrawing)
             .onGloballyPositioned { coordinates ->
                 isMobile = coordinates.size.height > coordinates.size.width
-            }
-            .background(MaterialTheme.colorScheme.background),
+            },
         contentAlignment = Alignment.TopCenter
     ) {
+        Image(
+            painter = painterResource(Res.drawable.background),
+            contentDescription = "background",
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer(scaleX = 2f, scaleY = 2f)
+                .offset { IntOffset(offsetX.toInt(), 0) },
+            contentScale = ContentScale.Crop,
+            alpha = 0.5f
+        )
+
         Scaffold(
             modifier = if (isMobile) Modifier.fillMaxWidth() else Modifier.width(1280.dp),
             bottomBar = {
@@ -68,11 +94,13 @@ fun Main() {
                         )
                     }
                 }
-            }, content = {
-                when (selectedScreen) {
-                    ScreenGraph.Home -> Navigator(HomeScreen(isMobile))
-                    ScreenGraph.Portfolio -> Navigator(PortfolioScreen(isMobile))
-                    ScreenGraph.Profile -> Navigator(ProfileScreen(isMobile))
+            }, content = { innerPadding ->
+                Box(modifier = Modifier.padding(innerPadding)) {
+                    when (selectedScreen) {
+                        ScreenGraph.Home -> Navigator(HomeScreen(isMobile))
+                        ScreenGraph.Portfolio -> Navigator(PortfolioScreen(isMobile))
+                        ScreenGraph.Profile -> Navigator(ProfileScreen(isMobile))
+                    }
                 }
             }
         )

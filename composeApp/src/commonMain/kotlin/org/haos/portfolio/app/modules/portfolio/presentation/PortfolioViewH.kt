@@ -1,14 +1,19 @@
 package org.haos.portfolio.app.modules.portfolio.presentation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -25,7 +30,10 @@ import org.haos.portfolio.app.ui.HSpacer
 import org.haos.portfolio.app.ui.headline1_leah
 import org.haos.portfolio.app.ui.headline2_leah
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import portfolio.composeapp.generated.resources.Res
+import portfolio.composeapp.generated.resources.portfolio_header
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -56,30 +64,28 @@ fun PortfolioViewH(
 
     val listState = remember { LazyListState() }
     LazyColumn(
-//        modifier = Modifier.background(Color.Green),
         state = listState,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         item {
-            val url = "https://exxuslee.github.io/portfolio/gallery/common/portfolio_header.jpg"
-            AsyncImage(
-                model = ImageRequest.Builder(LocalPlatformContext.current).data(url).build(),
-                contentDescription = null,
-                modifier = Modifier.fillMaxWidth(),
+            Image(
+                painter = painterResource(Res.drawable.portfolio_header),
+                contentDescription = "portfolio_header",
+                modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Fit,
-                imageLoader = imageLoader,
             )
         }
         viewState.count.projects.forEach { project ->
             stickyHeader {
                 Row(
-                    modifier = Modifier.fillMaxWidth().background(ComposeAppTheme.colors.background),
+                    modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround,
                 ) {
                     headline2_leah(
                         text = project.title,
-                        modifier = Modifier.padding(16.dp)
+                        modifier = Modifier.clip(RoundedCornerShape(bottomStart = 12.dp, bottomEnd = 12.dp)).alpha(0.7f)
+                            .background(ComposeAppTheme.colors.background).padding(vertical = 8.dp, horizontal = 48.dp),
                     )
                     HSpacer(0.dp)
                     HSpacer(0.dp)
@@ -129,7 +135,7 @@ fun PortfolioViewH(
                 textAlign = TextAlign.Center
             )
         }
-        item { Spacer(modifier = Modifier.height(24.dp)) }
+        item { Spacer(modifier = Modifier.height(48.dp)) }
     }
 }
 

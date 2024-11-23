@@ -33,8 +33,7 @@ fun HomeViewH(
     Surface() {  }
     Column(
         modifier = Modifier
-            .fillMaxHeight().widthIn(max = 1280.dp)
-            .padding(16.dp).background(ComposeAppTheme.colors.greenD),
+            .fillMaxHeight().widthIn(max = 1280.dp).padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

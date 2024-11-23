@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,11 +54,11 @@ fun PortfolioViewH(
         }
     }
 
+    val listState = remember { LazyListState() }
     LazyColumn(
-        modifier = Modifier.fillMaxHeight().width(1280.dp).background(ComposeAppTheme.colors.greenD),
-        contentPadding = PaddingValues(8.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+//        modifier = Modifier.background(Color.Green),
+        state = listState,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         item {
             val url = "https://exxuslee.github.io/portfolio/gallery/common/portfolio_header.jpg"
@@ -91,32 +92,32 @@ fun PortfolioViewH(
                 val url1 = if (count * 2 + 1 < project.count)
                     "https://exxuslee.github.io/portfolio/gallery/${project.folder}/${count * 2 + 1}.jpg" else ""
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
+                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
+                    if (url1.isEmpty()) Spacer(Modifier.weight(0.25f))
                     AsyncImage(
                         model = url0,
                         contentDescription = null,
-                        modifier = Modifier
-                            .widthIn(max = 480.dp)
-                            .aspectRatio(1f)
+                        modifier = Modifier.weight(0.5f)
                             .clickable { selectedPhoto = url0 },
                         contentScale = ContentScale.Fit,
-                        imageLoader = imageLoader
+                        imageLoader = imageLoader,
+                        alignment = Alignment.Center,
                     )
                     if (url1.isNotEmpty()) {
                         HSpacer(16.dp)
                         AsyncImage(
                             model = url1,
                             contentDescription = null,
-                            modifier = Modifier
-                                .widthIn(max = 480.dp)
-                                .aspectRatio(1f)
+                            modifier = Modifier.weight(0.5f)
                                 .clickable { selectedPhoto = url1 },
                             contentScale = ContentScale.Fit,
-                            imageLoader = imageLoader
+                            imageLoader = imageLoader,
+                            alignment = Alignment.Center,
                         )
-                    }
+                    } else Spacer(Modifier.weight(0.25f))
                 }
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }

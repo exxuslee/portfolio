@@ -30,16 +30,8 @@ import portfolio.composeapp.generated.resources.*
 fun HomeViewV(
     viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit
 ) {
-    var parentSize by remember { mutableStateOf<IntSize?>(null) }
-
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .onGloballyPositioned { coordinates ->
-                parentSize = coordinates.size
-            }
-            .padding(16.dp).background(ComposeAppTheme.colors.greenD),
+        modifier = Modifier.background(ComposeAppTheme.colors.greenD),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
@@ -97,13 +89,6 @@ fun HomeViewV(
                 Text(stringResource(Res.string.theme))
             }
         )
-
-        TextButton(
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp).widthIn(min = 200.dp),
-            onClick = {},
-        ) {
-            Text("${parentSize?.width?.dp} ${parentSize?.height?.dp}")
-        }
 
         TextButton(
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp).widthIn(min = 200.dp),

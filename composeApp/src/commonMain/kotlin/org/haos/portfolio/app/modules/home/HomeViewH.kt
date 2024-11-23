@@ -30,15 +30,10 @@ import portfolio.composeapp.generated.resources.*
 fun HomeViewH(
     viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit
 ) {
-    var parentSize by remember { mutableStateOf<IntSize?>(null) }
-
+    Surface() {  }
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .onGloballyPositioned { coordinates ->
-                parentSize = coordinates.size
-            }
+            .fillMaxHeight().widthIn(max = 1280.dp)
             .padding(16.dp).background(ComposeAppTheme.colors.greenD),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

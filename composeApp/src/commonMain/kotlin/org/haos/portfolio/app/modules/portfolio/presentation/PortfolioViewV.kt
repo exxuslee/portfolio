@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +36,7 @@ fun PortfolioViewV(
 ) {
     var selectedPhoto by remember { mutableStateOf<String?>(null) }
     val imageLoader = ImageLoader.Builder(LocalPlatformContext.current).build()
+
     if (selectedPhoto != null) {
         Dialog(onDismissRequest = { selectedPhoto = null }) {
             Box(
@@ -53,10 +56,10 @@ fun PortfolioViewV(
         }
     }
 
+    val listState = remember { LazyListState() }
     LazyColumn(
-        modifier = Modifier.background(ComposeAppTheme.colors.greenD),
-        contentPadding = PaddingValues(8.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        state = listState,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item {
             val url = "https://exxuslee.github.io/portfolio/gallery/common/portfolio_header.jpg"
@@ -77,7 +80,7 @@ fun PortfolioViewV(
                 ) {
                     headline2_leah(
                         text = project.title,
-                        modifier = Modifier.padding(16.dp)
+                        modifier = Modifier.padding(8.dp)
                     )
                     HSpacer(0.dp)
                     HSpacer(0.dp)
@@ -85,38 +88,16 @@ fun PortfolioViewV(
                 }
             }
 
-            items(project.count / 2 + project.count % 2) { count ->
-                val url0 = "https://exxuslee.github.io/portfolio/gallery/${project.folder}/${count * 2}.jpg"
-                val url1 = if (count * 2 + 1 < project.count)
-                    "https://exxuslee.github.io/portfolio/gallery/${project.folder}/${count * 2 + 1}.jpg" else ""
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    AsyncImage(
-                        model = url0,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .widthIn(max = 480.dp)
-                            .aspectRatio(1f)
-                            .clickable { selectedPhoto = url0 },
-                        contentScale = ContentScale.Fit,
-                        imageLoader = imageLoader
-                    )
-                    if (url1.isNotEmpty()) {
-                        HSpacer(16.dp)
-                        AsyncImage(
-                            model = url1,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .widthIn(max = 480.dp)
-                                .aspectRatio(1f)
-                                .clickable { selectedPhoto = url1 },
-                            contentScale = ContentScale.Fit,
-                            imageLoader = imageLoader
-                        )
-                    }
-                }
+            items(project.count) { count ->
+                val url = "https://exxuslee.github.io/portfolio/gallery/${project.folder}/${count}.jpg"
+                AsyncImage(
+                    model = url,
+                    contentDescription = null,
+                    modifier = Modifier.padding(8.dp)
+                        .clickable { selectedPhoto = url },
+                    contentScale = ContentScale.Fit,
+                    imageLoader = imageLoader
+                )
             }
             item { Spacer(modifier = Modifier.height(16.dp)) }
         }

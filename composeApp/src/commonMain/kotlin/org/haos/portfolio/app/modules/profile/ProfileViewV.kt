@@ -2,10 +2,7 @@ package org.haos.portfolio.app.modules.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -48,18 +45,31 @@ fun ProfileViewV(
     ) {
         val scrollState = rememberScrollState()
         Column(modifier = Modifier.verticalScroll(scrollState)) {
-            RowUniversal(horizontalArrangement = Arrangement.Center) {
-                Image(
-                    painter = painterResource(Res.drawable.avatar),
-                    contentDescription = "avatar",
-                    modifier = Modifier.size(128.dp)
-                )
-            }
             RowUniversal(
                 verticalPadding = 0.dp,
                 horizontalArrangement = Arrangement.Center
             ) {
-                title3_tyler(stringResource(Res.string.profile))
+                title3_leah(stringResource(Res.string.profile))
+            }
+            VSpacer(8.dp)
+            Image(
+                painter = painterResource(Res.drawable.avatar),
+                contentDescription = "avatar",
+                modifier = Modifier.height(360.dp),
+            )
+            VSpacer(8.dp)
+            Column {
+                headline2_tyler(stringResource(Res.string.about_me))
+                body_leah(stringResource(Res.string.I_am_ready_to_provide))
+            }
+            VSpacer(8.dp)
+            Column {
+                headline2_tyler(stringResource(Res.string.skils))
+                body_leah(stringResource(Res.string.Ds_max))
+                body_leah(stringResource(Res.string.Corona))
+                body_leah(stringResource(Res.string.Photoshop))
+                body_leah(stringResource(Res.string.Illustrator))
+                body_leah(stringResource(Res.string.Blender))
             }
             VSpacer(8.dp)
 

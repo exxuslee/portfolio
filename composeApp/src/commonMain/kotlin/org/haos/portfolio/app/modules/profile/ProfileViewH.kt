@@ -2,12 +2,11 @@ package org.haos.portfolio.app.modules.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Card
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.Send
 import androidx.compose.material.icons.outlined.Call
@@ -19,8 +18,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.haos.portfolio.app.modules.profile.models.ProfileEvent
 import org.haos.portfolio.app.modules.profile.models.ProfileViewState
@@ -37,20 +38,45 @@ fun ProfileViewH(
 ) {
     val scrollState = rememberScrollState()
     Column(modifier = Modifier.verticalScroll(scrollState)) {
-        RowUniversal(horizontalArrangement = Arrangement.Center) {
-            Image(
-                painter = painterResource(Res.drawable.avatar),
-                contentDescription = "avatar",
-                modifier = Modifier.size(128.dp)
-            )
-        }
+
         RowUniversal(
             verticalPadding = 0.dp,
             horizontalArrangement = Arrangement.Center
         ) {
-            title3_tyler(stringResource(Res.string.profile))
+            title3_leah(stringResource(Res.string.profile))
         }
+        RowUniversal(horizontalArrangement = Arrangement.SpaceAround) {
+            Image(
+                painter = painterResource(Res.drawable.avatar),
+                contentDescription = "avatar",
+                modifier = Modifier.height(360.dp),
+            )
+            Column(
+                modifier = Modifier.fillMaxHeight().background(Color.Green),
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column {
+                    headline2_tyler(stringResource(Res.string.about_me))
+                    body_leah(stringResource(Res.string.I_am_ready_to_provide))
+                }
+
+                VSpacer(0.dp)
+                Column {
+                    headline2_tyler(stringResource(Res.string.skils))
+                    body_leah(stringResource(Res.string.Ds_max))
+                    body_leah(stringResource(Res.string.Corona))
+                    body_leah(stringResource(Res.string.Photoshop))
+                    body_leah(stringResource(Res.string.Illustrator))
+                    body_leah(stringResource(Res.string.Blender))
+                }
+
+            }
+            HSpacer(0.dp)
+        }
+
         VSpacer(8.dp)
+
+
 
         CellUniversalSection(
             listOf(

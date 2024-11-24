@@ -31,7 +31,7 @@ fun HomeViewV(
     viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit
 ) {
     Column(
-        modifier = Modifier.background(ComposeAppTheme.colors.greenD),
+        modifier = Modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

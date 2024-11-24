@@ -30,10 +30,9 @@ import portfolio.composeapp.generated.resources.*
 fun HomeViewH(
     viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit
 ) {
-    Surface() {  }
     Column(
         modifier = Modifier
-            .fillMaxHeight().widthIn(max = 1280.dp).padding(16.dp),
+            .fillMaxHeight().widthIn(min = 720.dp, max = 1280.dp).padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

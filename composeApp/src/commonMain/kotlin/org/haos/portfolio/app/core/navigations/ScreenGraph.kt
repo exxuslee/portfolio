@@ -7,5 +7,5 @@ import portfolio.composeapp.generated.resources.portfolio
 import portfolio.composeapp.generated.resources.about_me
 
 enum class ScreenGraph(val label: StringResource) {
-    Home(Res.string.home), Portfolio(Res.string.portfolio), Profile(Res.string.about_me),
+    Profile(Res.string.about_me), Home(Res.string.home), Portfolio(Res.string.portfolio),
 }

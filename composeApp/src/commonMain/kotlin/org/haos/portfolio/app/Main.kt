@@ -4,6 +4,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -16,6 +17,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -35,7 +37,7 @@ import portfolio.composeapp.generated.resources.*
 
 @Composable
 fun Main() {
-    var selectedScreen by remember { mutableStateOf(ScreenGraph.entries.first()) }
+    var selectedScreen by remember { mutableStateOf(ScreenGraph.Home) }
     var isMobile by remember { mutableStateOf(false) }
     val transition = updateTransition(targetState = selectedScreen, label = "Screen Transition")
 
@@ -73,11 +75,12 @@ fun Main() {
                 BottomNavigation(backgroundColor = MaterialTheme.colorScheme.scrim) {
                     ScreenGraph.entries.forEach { screen ->
                         val icon = when (screen) {
-                            ScreenGraph.Home -> Icons.Rounded.Home to Icons.Outlined.Home
-                            ScreenGraph.Portfolio -> vectorResource(Res.drawable.ic_sports_fill1) to vectorResource(Res.drawable.ic_sports_fill0)
                             ScreenGraph.Profile -> vectorResource(Res.drawable.ic_account_balance_fill1) to vectorResource(
                                 Res.drawable.ic_account_balance_fill0
                             )
+
+                            ScreenGraph.Home -> Icons.Rounded.Home to Icons.Outlined.Home
+                            ScreenGraph.Portfolio -> vectorResource(Res.drawable.ic_sports_fill1) to vectorResource(Res.drawable.ic_sports_fill0)
                         }
 
                         BottomNavigationItem(
@@ -97,9 +100,9 @@ fun Main() {
             }, content = { innerPadding ->
                 Box(modifier = Modifier.padding(innerPadding)) {
                     when (selectedScreen) {
+                        ScreenGraph.Profile -> Navigator(ProfileScreen(isMobile))
                         ScreenGraph.Home -> Navigator(HomeScreen(isMobile))
                         ScreenGraph.Portfolio -> Navigator(PortfolioScreen(isMobile))
-                        ScreenGraph.Profile -> Navigator(ProfileScreen(isMobile))
                     }
                 }
             }

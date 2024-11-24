@@ -1,7 +1,13 @@
 version:0
 string|Back|QmFjaw==
 string|BaseCurrency|QmFzZSBDdXJyZW5jeQ==
+string|Blender|QmxlbmRlcg==
+string|Corona|Q29yb25hIFJlbmRlcg==
+string|Ds_max|M0RzIE1heA==
+string|I_am_ready_to_provide|SSBhbSByZWFkeSB0byBwcm92aWRlIHNlcnZpY2VzIGZvciB2aXN1YWxpemluZwogICAgICAgIHlvdXIgZGVzaWduIHNvbHV0aW9ucyBpbiBleGNlbGxlbnQgcXVhbGl0eS4KICAgICAgICBDcmVhdGl2ZSBhbmQgZGV0YWlsLW9yaWVudGVkIDNEIGFydGlzdC4KICAgICAgICBJIGRvIHRoZSBwcm9qZWN0IGNvbXBldGVudGx5IGZyb20gdGhlIHZlcnkKICAgICAgICBiZWdpbm5pbmcsIGNvbnN0cnVjdGluZyBnZW9tZXRyeSwgc2V0dGluZyB1cAogICAgICAgIGxpZ2h0IGFuZCBtYXRlcmlhbHMsIGRldGFpbGluZy4KICAgICAgICBBYmxlIHRvIHVuZGVyc3RhbmQgcHJvamVjdCByZXF1aXJlbWVudHMgZnJvbQogICAgICAgIGNsaWVudHMgYW5kIGNvbmNlcHR1YWxpemUgY3JlYXRpdmUgaWRlYXMuCiAgICAgICAgVWtyYWluZSB8IFdvcmxkd2lkZQ==
+string|Illustrator|QWRvYmUgSWxsdXN0cmF0b3I=
 string|Language|TGFuZ3VhZ2U=
+string|Photoshop|QWRvYmUgUGhvdG9zaG9w
 string|Settings|U2V0dGluZ3M=
 string|about_game|QWJvdXQgZ2FtZQ==
 string|about_me|QWJvdXQgbWU=
@@ -19,5 +25,6 @@ string|open_github|T3BlbiBnaXRodWI=
 string|portfolio|UG9ydGZvbGlv
 string|profile|UHJvZmlsZQ==
 string|run|UnVu
+string|skils|U2tpbHM=
 string|stop|U3RvcA==
 string|theme|VGhlbWU=

@@ -29,6 +29,7 @@ import org.haos.portfolio.app.modules.home.HomeScreen
 import org.haos.portfolio.app.modules.portfolio.presentation.PortfolioScreen
 import org.haos.portfolio.app.modules.profile.ProfileScreen
 import org.haos.portfolio.app.theme.ComposeAppTheme
+import org.haos.portfolio.app.ui.VSpacer
 import org.haos.portfolio.app.ui.caption_tyler
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -98,12 +99,13 @@ fun Main() {
                     }
                 }
             }, content = { innerPadding ->
-                Box(modifier = Modifier.padding(innerPadding)) {
+                Column(modifier = Modifier.padding(innerPadding)) {
                     when (selectedScreen) {
                         ScreenGraph.Profile -> Navigator(ProfileScreen(isMobile))
                         ScreenGraph.Home -> Navigator(HomeScreen(isMobile))
                         ScreenGraph.Portfolio -> Navigator(PortfolioScreen(isMobile))
                     }
+                    Spacer(modifier = Modifier.height(64.dp).background(Color.Transparent))
                 }
             }
         )

@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+
+    <path
+            android:strokeColor="#833AB4"
+    android:strokeWidth="2"
+    android:fillColor="#00000000"
+    android:pathData="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2Z" />
+
+    <path
+            android:strokeColor="#F77737"
+    android:strokeWidth="1.5"
+    android:fillColor="#00000000"
+    android:pathData="M12,8C9.24,8 7,10.24 7,12C7,13.76 9.24,16 12,16C14.76,16 17,13.76 17,12C17,10.24 14.76,8 12,8Z" />
+
+    <!-- Маленький круг для "вспышки" камеры -->
+    <path
+            android:strokeColor="#FFDC80"
+    android:strokeWidth="1.5"
+    android:fillColor="#00000000"
+    android:pathData="M16,7.5A1.5,1.5 0 1,1 14.5,6A1.5,1.5 0 0,1 16,7.5Z" />
+</vector>

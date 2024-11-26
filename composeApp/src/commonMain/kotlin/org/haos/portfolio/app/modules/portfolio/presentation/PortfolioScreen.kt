@@ -1,5 +1,6 @@
 package org.haos.portfolio.app.modules.portfolio.presentation
 
+import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -9,8 +10,6 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.transitions.ScreenTransition
 import org.haos.portfolio.app.modules.portfolio.presentation.models.PortfolioAction
 import org.haos.portfolio.app.core.navigations.SlideTransition
-import org.haos.portfolio.app.modules.home.HomeViewH
-import org.haos.portfolio.app.modules.home.HomeViewV
 
 @OptIn(ExperimentalVoyagerApi::class)
 class PortfolioScreen(private val isMobile: Boolean) : Screen, ScreenTransition by SlideTransition() {

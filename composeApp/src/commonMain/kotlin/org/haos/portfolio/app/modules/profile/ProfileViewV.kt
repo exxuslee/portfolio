@@ -33,7 +33,7 @@ fun ProfileViewV(
 ) {
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier.verticalScroll(scrollState),
+        modifier = Modifier.verticalScroll(scrollState).background(MaterialTheme.colorScheme.surface),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         title3_leah(stringResource(Res.string.profile))
